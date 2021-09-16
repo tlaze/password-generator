@@ -17,7 +17,12 @@ generateBtn.addEventListener("click", writePassword);
 // Generate a Password
 function generatePassword(){
   console.log("Button Clicked");
-  return "Gnerated Password will go here";
+
+  var characterCount = prompt("How many characters would you like your password?:");
+  console.log("Number of characters is " + characterCount);
+
+
+  return "Generated Password will go here";
 }
 
 
