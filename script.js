@@ -30,40 +30,35 @@ function generatePassword(){
   while(isNaN(characterCount) || characterCount < 8 || characterCount > 128);
   
   
-  //Asks if user wants to include lower case letters     
+  //Asks if user wants to include lowercase letters     
   var lowerCaseQuestion = confirm("Would you like your password to contain lowercase characters?");
   
   if(lowerCaseQuestion === true){
-    window.alert("Lower Case Letters Included");
-
+    window.alert("Lowercase Letters Included");
   }
   else{
-    window.alert("No Lower Case Letters Included");
+    window.alert("No Lowercase Letters Included");
   }
 
-
-
-
+  // Asks if usear wants to include uppercase letters
   var upperCaseQuestion = confirm("Would you like your password to contain uppercase characters?");
-  console.log(upperCaseQuestion);                                         //consoles true if user wants to use uppercase characters and false if not
   if(upperCaseQuestion === true){
-    console.log("User wants uppercase");                                 //consoles that user wants to use uppercase
-  
+    window.alert("Uppercase Letters Included");
   
   }
   else{
-    console.log("User doesn't want to use uppercase");                    //consoles that user doesn't want to use uppercase
+    window.alert("No Uppercase Letters Included");
   }
 
+  // Asks user if they want special characters included
   var specialCharacterQuestion = confirm("Would you like your password to contain special characters?");
-  console.log(specialCharacterQuestion);                                         //consoles true if user wants to use special characters and false if not
   if(specialCharacterQuestion === true){
-    console.log("User wants to use special characters");                  //consoles that user wants to use special characters
-  
+    window.alert("Special Characters Included");
   
   }
   else{
-    console.log("User doesn't want to use special characters");           //consoles that user doesn't want to use special characters
+    window.alert("No Special Characters Included");
+
   }
 }
 
