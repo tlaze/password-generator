@@ -46,6 +46,17 @@ function generatePassword(){
       else{
         console.log("User doesn't want to use uppercase");                    //consoles that user doesn't want to use uppercase
       }
+
+      var specialCharacterQuestion = confirm("Would you like your password to contain special characters?");
+      console.log(specialCharacterQuestion);                                         //consoles true if user wants to use special characters and false if not
+      if(specialCharacterQuestion === true){
+        console.log("User wants to use special characters");                  //consoles that user wants to use special characters
+      
+      
+      }
+      else{
+        console.log("User doesn't want to use special characters");           //consoles that user doesn't want to use special characters
+      }
     }
   }
 
