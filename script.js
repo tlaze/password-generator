@@ -17,14 +17,35 @@ function generatePassword(){
 
   // Prompts user for number of characters in their password
   var characterCount = parseInt(prompt("How many characters would you like your password?"));
-  
-  
   console.log("Number of characters is " + characterCount);                   //writes out what the user typed in the prompt
 
   if (!isNaN(characterCount)){
     console.log("It's a number");                                             //consoles if the user entered an Integer              
+    
     if(characterCount > 7 && characterCount < 129){
-      console.log("Password is the correct length");
+      console.log("Password is the correct length");                          //consoles if the password is the correct length
+    
+      var lowerCaseQuestion = confirm("Would you like your password to contain lowercase characters?");
+      console.log(lowerCaseQuestion);                                         //consoles true if user wants lowercase characters and false if not
+      if(lowerCaseQuestion === true){
+        console.log("User wants lowercase");                                  //consoles that the user wants to use lowercase
+
+
+      }
+      else{
+        console.log("User does not want to use lowercase");                   //consoles the user does not want to use lowercase
+      }
+
+      var upperCaseQuestion = confirm("Would you like your password to contain uppercase characters?");
+      console.log(upperCaseQuestion);                                         //consoles true if user wants to use uppercase characters and false if not
+      if(upperCaseQuestion === true){
+        console.log("User wants uppercase");                                 //consoles that user wants to use uppercase
+      
+      
+      }
+      else{
+        console.log("User doesn't want to use uppercase");                    //consoles that user doesn't want to use uppercase
+      }
     }
   }
 
