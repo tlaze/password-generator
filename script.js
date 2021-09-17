@@ -5,7 +5,7 @@ var passArrayLength = 0;
 // Password stored with a variable length and randomized characters
 var finalPasswordArray = [];
 //  String of finalPasswordArray that will be displayed to user
-var passwordOutput = '';
+var passwordOutput;
 
 // Array of each possible character
 var lowerCaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -17,18 +17,19 @@ var specialCharacters = ["!","#","$","%","&","(",")","*","+",",","-",".","/",":"
 // Generate a Password
 function generatePassword(){
   passwordLength();
+  return passwordOutput;
 }
-
 //Asks user for their desired password length and stores that value as the length of finalPasswordArray
 function passwordLength(){
   
   //Repeats until imput criteria is met
   do{
+    finalPasswordArray = [];    //Clears the Array to prevent passwords from repeating after generating a new one
     var characterCount = parseInt(window.prompt("How long would you like your password?\nChoose Between 8 and 128 Characters"));
     // Repeats prompt until user gives appropriate input
     if(!isNaN(characterCount) && characterCount > 7 && characterCount < 129){
       passArrayLength = characterCount;     //User input dictates length of Array
-      characterQuestions();     //Goes to characterQuestions() function
+      characterQuestions();
     }
     // Validation for length of of password
     else{
@@ -37,7 +38,6 @@ function passwordLength(){
   }
   while(isNaN(characterCount) || characterCount < 8 || characterCount > 128);
 } 
-
  //Determines what characters the user wants and inputs them into finalPasswordArray 
 function characterQuestions(){
 
@@ -50,7 +50,6 @@ function characterQuestions(){
   else{
     window.alert("No Lowercase Characters Included");
   }
-  
   // Asks if user wants to include uppercase characters included
   var upperCaseQuestion = confirm("Would you like your password to contain uppercase characters?");
 
@@ -62,7 +61,6 @@ function characterQuestions(){
   else{
     window.alert("No Uppercase Characters Included");
   }
-
   // Asks user if they want numeric characters included
   var numericQuestion = confirm("Would you like your password to contain numeric characters?");
 
@@ -73,7 +71,6 @@ function characterQuestions(){
   else{
     window.alert("No Numeric Characters Included");
   }
-
   // Asks user if they want special characters included
   var specialCharacterQuestion = confirm("Would you like your password to contain special characters?");
 
@@ -94,33 +91,26 @@ function characterQuestions(){
     randomizePassword(); //Goes to randomizePassword function if user's choices meets criteria
   }
 }
-
 // Passes the tempPass array through a loop and concats with finalPasswordArray at random indices
 function randomizePassword(){
   for(var i = 0; i < passArrayLength; i++){
     finalPasswordArray = finalPasswordArray.concat(tempPassword[Math.floor(Math.random() * tempPassword.length)]);
   }
   console.log(finalPasswordArray);
-  arrayToString();
+  arrayToString(); 
 }
-
-// Changes values of finalPasswordArray to a string and adds it to passOutput String
+// Changes values of finalPasswordArray to a string and adds it to passwordOutput variable
 function arrayToString(){
-
-  passwordOutput = finalPasswordArray.join('');
-  console.log(passwordOutput);
+  passwordOutput = finalPasswordArray.join(''); 
 }
 
 var generateBtn = document.querySelector("#generate");
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
