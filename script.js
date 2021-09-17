@@ -10,24 +10,33 @@
 // Generate Password based on criteria
 // Display Password on the page
 
+// Declares length of password array
 var passArrayLength = 0;
+// Password stored in an array with a variable length
 var finalPassword = [passArrayLength];
+
+// Array of each possible character
+var lowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var specialCharacters = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~",];
+
 
 // Generate a Password
 function generatePassword(){
   passwordLength();
 }
 
+//Asks user for their desired password length and stores that value as the length of the finalPassword Array
 function passwordLength(){
   
-  // Prompts user for password length
+  //Repeats until imput criteria is met
   do{
     var characterCount = parseInt(window.prompt("How long would you like your password?\nChoose Between 8 and 128 Characters"));
     // Repeats prompt until user gives appropriate input
     if(!isNaN(characterCount) && characterCount > 7 && characterCount < 129){
-      passArrayLength = characterCount;
-      console.log(passArrayLength);
-      characterQuestions();
+      passArrayLength = characterCount;     //User input dictates length of Array
+      characterQuestions();     //Goes to characterQuestions() function
     }
     // Validation for length of of password
     else{
@@ -37,7 +46,7 @@ function passwordLength(){
   while(isNaN(characterCount) || characterCount < 8 || characterCount > 128);
 } 
 
-  
+ //Determines what characters the user wants and inputs them into the finalPassword Array 
 function characterQuestions(){
 
   //Asks if user wants to include lowercase characters included   
@@ -91,7 +100,6 @@ function characterQuestions(){
     return;  //change to generatepassword function
   }
 }
-
 
   // return "Generated Password will go here"; 
 
