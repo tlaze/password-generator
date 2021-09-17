@@ -17,7 +17,6 @@ var specialCharacters = ["!","#","$","%","&","(",")","*","+",",","-",".","/",":"
 // Generate a Password
 function generatePassword(){
   passwordLength();
-  return passwordOutput;
 }
 
 //Asks user for their desired password length and stores that value as the length of finalPasswordArray
@@ -101,14 +100,15 @@ function randomizePassword(){
   for(var i = 0; i < passArrayLength; i++){
     finalPasswordArray = finalPasswordArray.concat(tempPassword[Math.floor(Math.random() * tempPassword.length)]);
   }
+  console.log(finalPasswordArray);
   arrayToString();
 }
 
 // Changes values of finalPasswordArray to a string and adds it to passOutput String
 function arrayToString(){
-  for(var i = 0; i < finalPasswordArray.length; i++){
-    passwordOutput = passwordOutput + finalPasswordArray[i];
-  }
+
+  passwordOutput = finalPasswordArray.join('');
+  console.log(passwordOutput);
 }
 
 var generateBtn = document.querySelector("#generate");
