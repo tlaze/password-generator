@@ -16,13 +16,13 @@ var tempPassword= [];
 // Declares length of password array
 var passArrayLength = 0;
 // Password stored in an array with a variable length
-var finalPassword = [passArrayLength];
+var finalPassword = [];
 
 // Array of each possible character
 var lowerCaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperCaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specialCharacters = ["!",'"',"#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
+var specialCharacters = ["!","#","$","%","&","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
 
 
 // Generate a Password
@@ -90,9 +90,7 @@ function characterQuestions(){
 
   if(specialCharacterQuestion === true){
     tempPassword = tempPassword.concat(specialCharacters);    //Concats numerals to tempPassword Array
-    console.log(tempPassword);
     window.alert("Special Characters Included");
-
   }
   else{
     window.alert("No Special Characters Included");
@@ -104,14 +102,16 @@ function characterQuestions(){
     characterQuestions();
   }
   else{
-    return;  //change to generatepassword function
+    randomizePassword(); //Goes to randomizePassword function if user's choices meets criteria
   }
 }
 
-  // return "Generated Password will go here"; 
-
-
-
+// Passes the tempPass array through a loop and concats with finalPassword Array at random indices
+function randomizePassword(){
+  for(var i = 0; i < passArrayLength; i++){
+    finalPassword = finalPassword.concat(tempPassword[Math.floor(Math.random() * tempPassword.length)]);
+  }
+}
 
 
 var generateBtn = document.querySelector("#generate");
