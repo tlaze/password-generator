@@ -1,22 +1,11 @@
-// Assignment Code
-
-// Steps
-// Make generatePassword function
-// Prompt user for password criteria
-//  a. Between 8 and 128 characters
-//  b. lowercase, uppercase, special characters
-
-// Validate the input 
-// Generate Password based on criteria
-// Display Password on the page
-
-
 //Declares a temporary password Array
 var tempPassword= [];
-// Declares length of password array
+// Declares length of array
 var passArrayLength = 0;
-// Password stored in an array with a variable length
-var finalPassword = [];
+// Password stored with a variable length and randomized characters
+var finalPasswordArray = [];
+//  String of finalPasswordArray that will be displayed to user
+var passwordOutput = '';
 
 // Array of each possible character
 var lowerCaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -28,9 +17,10 @@ var specialCharacters = ["!","#","$","%","&","(",")","*","+",",","-",".","/",":"
 // Generate a Password
 function generatePassword(){
   passwordLength();
+  return passwordOutput;
 }
 
-//Asks user for their desired password length and stores that value as the length of the finalPassword Array
+//Asks user for their desired password length and stores that value as the length of finalPasswordArray
 function passwordLength(){
   
   //Repeats until imput criteria is met
@@ -44,12 +34,12 @@ function passwordLength(){
     // Validation for length of of password
     else{
       window.alert("Invalid Input. Try Again")
-  }
+    }
   }
   while(isNaN(characterCount) || characterCount < 8 || characterCount > 128);
 } 
 
- //Determines what characters the user wants and inputs them into the finalPassword Array 
+ //Determines what characters the user wants and inputs them into finalPasswordArray 
 function characterQuestions(){
 
   //Asks if user wants to include lowercase characters included   
@@ -106,13 +96,20 @@ function characterQuestions(){
   }
 }
 
-// Passes the tempPass array through a loop and concats with finalPassword Array at random indices
+// Passes the tempPass array through a loop and concats with finalPasswordArray at random indices
 function randomizePassword(){
   for(var i = 0; i < passArrayLength; i++){
-    finalPassword = finalPassword.concat(tempPassword[Math.floor(Math.random() * tempPassword.length)]);
+    finalPasswordArray = finalPasswordArray.concat(tempPassword[Math.floor(Math.random() * tempPassword.length)]);
   }
+  arrayToString();
 }
 
+// Changes values of finalPasswordArray to a string and adds it to passOutput String
+function arrayToString(){
+  for(var i = 0; i < finalPasswordArray.length; i++){
+    passwordOutput = passwordOutput + finalPasswordArray[i];
+  }
+}
 
 var generateBtn = document.querySelector("#generate");
 
