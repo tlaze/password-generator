@@ -96,7 +96,6 @@ function randomizePassword(){
   for(var i = 0; i < passArrayLength; i++){
     finalPasswordArray = finalPasswordArray.concat(tempPassword[Math.floor(Math.random() * tempPassword.length)]);
   }
-  console.log(finalPasswordArray);
   arrayToString(); 
 }
 // Changes values of finalPasswordArray to a string and adds it to passwordOutput variable
