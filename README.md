@@ -33,6 +33,6 @@ Methods
 
 ## Links
 
-Live Application: https://tlaze.github.io/password-generator-js/
+Live Application: https://tlaze.github.io/password-generator/
 
-GitHub Repository: https://github.com/tlaze/password-generator-js
+GitHub Repository: https://github.com/tlaze/password-generator
