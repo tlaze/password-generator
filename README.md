@@ -16,7 +16,7 @@ Once you made your selections, a password is instantly generated and able copy w
 
 HTML/Javascript
 
-Utilizing functions, methods, loops, arrays, alerts
+Utilizing functions, methods, loops, arrays, user inputs, and alerts
 
 
 ## Screenshots
